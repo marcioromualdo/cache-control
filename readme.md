@@ -44,7 +44,6 @@ The objective of taglib is to send to the web navigator, the path of the resourc
 ```
     put: <%@ taglib prefix="cache-control" uri="cache-control-tags" %>
 ```
-    examples:
     - tag js:
 ```
     Replace the tag html:
