@@ -1,0 +1,42 @@
+<project name="cacheControl" default="createJar" basedir=".">
+
+    <import file="properties.xml"/>	
+	
+	<property name="build.dir" value="./build/classes" />
+	<property name="src.dir" value="./src" />
+	<property name="tlds.dir" value="./tlds" />
+	<property name="dist.dir" value="./dist" />
+	<property name="jarName" value="cacheControl.jar" />
+
+	<path id="build.classpath">
+	    <pathelement location="./includes/jsp-api.jar"/>
+		<pathelement location="./includes/servlet-api.jar"/>
+		<pathelement location="${rt-jar.dir}/rt.jar"/>
+	</path>
+
+    <target name="clean" >
+        <delete dir="${build.dir}" />
+        <delete dir="${dist.dir}" />
+    </target>
+
+	<target name="init" depends="clean">
+    	<mkdir dir="${build.dir}" />
+	    <mkdir dir="${dist.dir}" />
+	</target>
+
+	<target name="compile" depends="init">
+    	<javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" deprecation="on" target="1.4" source="1.4" debug="on" includes="**/*.java">
+			<classpath refid="build.classpath"/>
+	    </javac>
+	</target>
+
+		
+    <target name="createJar" depends="compile" description="Packages taglib as JAR">    
+        <jar destfile="${dist.dir}/${jarName}">
+            <fileset dir="${build.dir}"/>
+        	<fileset dir="${tlds.dir}"/>
+        	<fileset dir="."  includes="readme.*"/>
+         </jar>
+    </target>
+	
+</project>
