@@ -18,9 +18,9 @@ The objective of taglib is to send to the web navigator, the path of the resourc
 
 **Instructions:**
 
-1.  put the cacheControl.jar in the WEB-INF/lib directory or in the web application classpath.      
+**1.**  put the cacheControl.jar in the WEB-INF/lib directory or in the web application classpath.      
 
-2.  config the web.xml:
+**2.**  config the web.xml:
 ```
     <filter>
         <filter-name>CacheControlFilter</filter-name>
@@ -42,7 +42,7 @@ The objective of taglib is to send to the web navigator, the path of the resourc
     </filter-mapping>
 ```
 
-3.  use the taglib in .jsp:
+**3.**  use the taglib in .jsp:
 ```
     put: <%@ taglib prefix="cache-control" uri="cache-control-tags" %>
 ```
