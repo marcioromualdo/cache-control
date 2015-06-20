@@ -17,7 +17,9 @@ The objective of taglib is to send to the web navigator, the path of the resourc
 **Key word:** the key word (/cache-control/) will be used as a filter to identify that a uri was encoded by the cache-control taglib. The key word and the hash base 64 is removed from the uri and is then forwarded to the real path uri.  
 
 **Instructions:**
+
 1.  put the cacheControl.jar in the WEB-INF/lib directory or in the web application classpath.      
+
 2.  config the web.xml:
 ```
     <filter>
