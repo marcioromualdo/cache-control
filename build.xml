@@ -37,6 +37,8 @@
         	<fileset dir="${tlds.dir}"/>
         	<fileset dir="."  includes="readme.*"/>
          </jar>
+
+    	<delete dir="${build.dir}" />
     </target>
 	
 </project>
