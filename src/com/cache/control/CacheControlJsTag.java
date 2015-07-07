@@ -14,16 +14,6 @@ public class CacheControlJsTag extends TagSupport {
         this.type = type;
     }
     
-    /**
-     * @deprecated Use setType with the MIME definition instead
-     */
-	public void setLanguage(String language) {
-	    if(language.equalsIgnoreCase("javascript")){
-	        setType("text/javascript");
-	    }
-	    throw new IllegalArgumentException("\"language\" is no longer a valid HTML attribute");
-	}
-
 	public void setSrc(String src) {
 	    this.src = src;
 	}
