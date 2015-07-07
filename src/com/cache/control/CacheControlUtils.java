@@ -54,7 +54,13 @@ public final class CacheControlUtils {
 		        CacheControlUtils.encodedFiles.put(path, encodeFile);    
 		    }
 		}
-		
+
+        try {
+            encodeFile = URLEncoder.encode(encodeFile, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            error("getEncodePath: URLEncoder.encode() encoding exception", e);
+        }
+        
         // create encodePath
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
         String encodePath = request.getContextPath() + path + "?" + GET_VAR_KEY + "=" + encodeFile;
