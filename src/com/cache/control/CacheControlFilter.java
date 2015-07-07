@@ -68,7 +68,7 @@ public class CacheControlFilter implements Filter {
         CacheControlUtils.debug("path [" + pathResources + "] resources [" + resources + "]");
         
         if (resources == null) {
-            CacheControlUtils.warn("CacheControlFilter.populateEncodedFiles: path [" + pathResources + "] have not files.");
+            CacheControlUtils.warn("CacheControlFilter.populateEncodedFiles: path [" + pathResources + "] have no files.");
             return;
         }
         
