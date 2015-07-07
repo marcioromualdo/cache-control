@@ -11,8 +11,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class CacheControlFilter implements Filter {
 
@@ -40,23 +38,7 @@ public class CacheControlFilter implements Filter {
 
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) 
 			throws ServletException, IOException {
-		
-		HttpServletRequest request = (HttpServletRequest) req;
-		HttpServletResponse response = (HttpServletResponse) res;
-		
-		String uri = request.getRequestURI();
-
-		CacheControlUtils.debug("doFilter: uri [" + uri + "]");
-		
-		if (uri.indexOf(CacheControlUtils.FILTER_KEY) > -1) {
-			String uriAux = uri.substring(uri.indexOf(CacheControlUtils.FILTER_KEY) + CacheControlUtils.FILTER_KEY_SIZE);
-			CacheControlUtils.debug("uri_real [" + uriAux + "]");
-
-			request.getRequestDispatcher(uriAux).forward(request, response);
-			return;
-		}
-
-		chain.doFilter(request, response);
+		chain.doFilter(req, res);
 	}
 	
 	public void destroy() {
@@ -68,7 +50,7 @@ public class CacheControlFilter implements Filter {
         CacheControlUtils.debug("path [" + pathResources + "] resources [" + resources + "]");
         
         if (resources == null) {
-            CacheControlUtils.warn("CacheControlFilter.populateEncodedFiles: path [" + pathResources + "] have not files.");
+            CacheControlUtils.warn("CacheControlFilter.populateEncodedFiles: path [" + pathResources + "] have no files.");
             return;
         }
         

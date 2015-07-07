@@ -2,7 +2,7 @@
 
   - **Author:** Marcio Romualdo da Silva
   - **Email:** marcioromualdo@yahoo.com.br
-  - **Version:** 1.0
+  - **Version:** 1.1.0
 
 Taglib that controls the cache of .js and .css files.
 

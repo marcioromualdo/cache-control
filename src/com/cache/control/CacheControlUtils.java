@@ -2,6 +2,8 @@ package com.cache.control;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
 public final class CacheControlUtils {
-	public static final String FILTER_KEY = "/cache_control/";
+	public static final String GET_VAR_KEY = "cache-id";
 	public static final int FILTER_KEY_SIZE = 39;
 	private static final int JS_EXTENSION_SIZE = 3;
 	private static final int CCS_EXTENSION_SIZE = 4;
@@ -52,10 +54,16 @@ public final class CacheControlUtils {
 		        CacheControlUtils.encodedFiles.put(path, encodeFile);    
 		    }
 		}
-		
+
+        try {
+            encodeFile = URLEncoder.encode(encodeFile, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            error("getEncodePath: URLEncoder.encode() encoding exception", e);
+        }
+        
         // create encodePath
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
-        String encodePath = request.getContextPath() + FILTER_KEY + encodeFile + path;
+        String encodePath = request.getContextPath() + path + "?" + GET_VAR_KEY + "=" + encodeFile;
         debug("getEncodePath: encodePath [" + encodePath + "]");
 
     	return encodePath;
@@ -103,8 +111,15 @@ public final class CacheControlUtils {
     public static void error(String msg) {
         logSystem("CacheControlUtils.error: " + msg);
     }
+    public static void error(String msg, Throwable e) {
+        logSystem("CacheControlUtils.error: " + msg, e);
+    }
 
     private static void logSystem(String msg) {
         System.out.println(msg);
+    }
+    private static void logSystem(String msg, Throwable e) {
+        System.out.println(msg);
+        e.printStackTrace();
     }
 }
