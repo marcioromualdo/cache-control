@@ -9,9 +9,9 @@
 	<property name="jarName" value="cacheControl-1.1.0.jar" />
 
 	<path id="build.classpath">
-	    <pathelement location="./includes/jsp-api.jar"/>
-		<pathelement location="./includes/servlet-api.jar"/>
-		<pathelement location="${rt-jar.dir}/rt.jar"/>
+		<pathelement location="./includes/jsp-api.jar"/>
+		<pathelement location="${java.dir}/rt.jar"/>
+		<pathelement location="${servlet.dir}/weblogic.jar"/>
 	</path>
 
     <target name="clean" >

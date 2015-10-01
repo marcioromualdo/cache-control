@@ -33,7 +33,9 @@ So, in this way, when the file is changed at the server, the navigator receives 
         Attributes:
             - the attribute "src" is required
             - the attribute "type" is optional, default: text/javascript
-            - the attribute "charset" is optional, default: UTF-8
+            - the attribute "charset" is optional
+            - the attribute "defer" is optional, default: false
+            - the attribute "async" is optional, default: false
 ``` 
     - tag css:
 ```

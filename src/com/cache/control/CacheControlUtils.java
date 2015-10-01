@@ -118,6 +118,7 @@ public final class CacheControlUtils {
     private static void logSystem(String msg) {
         System.out.println(msg);
     }
+
     private static void logSystem(String msg, Throwable e) {
         System.out.println(msg);
         e.printStackTrace();

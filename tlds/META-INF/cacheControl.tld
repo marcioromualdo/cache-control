@@ -13,7 +13,7 @@
     <tag>
         <name>css</name>
         <tagclass>com.cache.control.CacheControlCssTag</tagclass>
-        <bodycontent>empty</bodycontent>
+        <bodycontent>JSP</bodycontent>
         <info>
             Cache Control of .css files
         </info>
@@ -42,7 +42,7 @@
     <tag>
         <name>js</name>
         <tagclass>com.cache.control.CacheControlJsTag</tagclass>
-        <bodycontent>empty</bodycontent>
+        <bodycontent>JSP</bodycontent>
         <info>
             Cache Control of .js files
         </info>
@@ -52,12 +52,27 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>language</name>
+            <name>type</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
             <name>charset</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>defer</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>async</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>crossorigin</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
